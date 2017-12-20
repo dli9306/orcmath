@@ -84,7 +84,7 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 
 	protected void addClicked() {
 		Catalog c = new Catalog(descriptionField.getText(),descriptionField.getText(),Integer.parseInt(descriptionField.getText()));
-		catalog.add(c);
+		catalog.addBook(c);
 		text.setText("Your field have been added"+c);
 		
 	}
