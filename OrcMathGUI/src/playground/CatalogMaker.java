@@ -12,7 +12,8 @@ import guiPlayer.Book;
 import guiPlayer.Sampler;
 
 public class CatalogMaker {
- /*   static ArrayList<Catalog> booklist;
+	/*
+    static ArrayList<Catalog> booklist;
     
 	 
 	public CatalogMaker() {
@@ -68,7 +69,11 @@ public class CatalogMaker {
 		}
 		return data;
 	}
-*/
+	public void add(Catalog c) {
+		// TODO Auto-generated method stub
+		
+	}
+	*/
 	public static Scanner in;
 
 	private ArrayList<Book> catalog;
@@ -232,6 +237,6 @@ public class CatalogMaker {
 		create();
 
 	}
-	
+
 
 }

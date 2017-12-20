@@ -34,6 +34,7 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 		descriptionField = new TextField(40, 100, 200, 30, "Author!","Name of Author");
 		viewObjects.add(descriptionField);
 		descriptionField = new TextField(40, 160, 200, 30, "Pages!","Number of Pages");
+		descriptionField.setInputType(TextField.INPUT_TYPE_NUMERIC);
 		viewObjects.add(descriptionField);
 		text = new TextArea(40, 240, 200, 100, "PUT TEXT HERE");
 		viewObjects.add(text);
@@ -73,7 +74,7 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 	}
 
 	protected void deleteclicked() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -82,7 +83,9 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 	}
 
 	protected void addClicked() {
-		text.setText("You clicked the button...");
+		Catalog c = new Catalog(descriptionField.getText(),descriptionField.getText(),Integer.parseInt(descriptionField.getText()));
+		catalog.add(c);
+		text.setText("Your field have been added"+c);
 		
 	}
 
