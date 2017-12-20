@@ -68,7 +68,7 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 		viewObjects.add(button);
 		openButton = new FileOpenButton(380, 300, 100, 40, null, this);
 		viewObjects.add(openButton);
-       
+        
 
 	}
 
@@ -78,8 +78,7 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 	}
 
 	protected void saveClicked() {
-		// TODO Auto-generated method stub
-		
+          	
 	}
 
 	protected void addClicked() {
