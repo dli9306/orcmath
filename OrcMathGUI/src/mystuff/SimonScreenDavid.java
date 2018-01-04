@@ -36,7 +36,8 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 	private void nextRound() {
 		acceptInput = false;
 		r++;
-		sequence.add(randomMove());
+		MoveInterfaceDavid x = randomMove();
+		sequence.add(x);
 		setRound(r);
 		setSequenceSize(sequence.size());
 		changeText("Simon's turn");
@@ -63,9 +64,7 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 			     if(b!=null) {
 			    	 b.dim();
 			     }
-			     else {
-			    	 b = getButton();
-			     }
+			    b = getButton();
 			    b.highlight();
 			    try {
 					Thread.sleep(sleepTime);
