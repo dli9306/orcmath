@@ -1,8 +1,5 @@
 package mystuff;
 
-import guiPlayer.CatalogMakerGUI;
-import guiPlayer.CatalogScreen;
-import guiPlayer.CustomGUI;
 import guiTeacher.GUIApplication;
 
 public class SimonGameDavid extends GUIApplication {

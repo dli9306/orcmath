@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+import guiTeacher.components.Action;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
@@ -27,7 +28,71 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 
 	@Override
 	public void run() {
+		 label.setText("");
+		    nextRound();
+		
+	}
+
+	private void nextRound() {
+		acceptInput = false;
+		r++;
+		sequence.add(randomMove());
+		setRound(r);
+		setSequenceSize(sequence.size());
+		changeText("Simon's turn");
+		playSequence();
+		changeText("Your turn");
+		acceptInput = true;
+		setSequenceSize(0);
+		
+	}
+	private void setSequenceSize(int size) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	private void setRound(int r2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void playSequence() {
+		 ButtonInterfaceDavid b=null;
+		 int sleepTime = (int) (r*.5);
+		 for(int i=0;i<sequence.size();i++){ 
+			     if(b!=null) {
+			    	 b.dim();
+			     }
+			     else {
+			    	 b = getButton();
+			     }
+			    b.highlight();
+			    try {
+					Thread.sleep(sleepTime);
+					} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					}
+			}
+		 b.dim();
+		
+	}
+
+	private ButtonInterfaceDavid getButton() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void changeText(String x) {
+		label.setText(x);
+		try {
+			Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
+		label.setText("");
+		
 		
 	}
 
@@ -68,12 +133,55 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 	private void addButtons() {
 		int numButtons = 6;
 		Color[] color = {Color.blue,Color.green,Color.red,Color.yellow,Color.orange,Color.pink};
-		ArrayList<MoveInterfaceDavid> list=new ArrayList<MoveInterfaceDavid>(numButtons);
+		button =new ButtonInterfaceDavid[numButtons];
 		for(int i=0;i<numButtons;i++) {
-			ButtonInterfaceDavid x = getAButton();
-			button[i] = x;
+			final ButtonInterfaceDavid b = getAButton();
+			button[i] = b;
+			b.setColor(color[i]); 
+			b.setX(i*5);
+			b.setY(30);
+			b.setAction(new Action(){
+
+				public void act(){
+					if(acceptInput) {
+						Thread blink = new Thread(new Runnable(){
+
+							public void run(){
+								b.highlight();
+								try {
+								Thread.sleep(800);
+								} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+								}
+								b.dim();
+							}
+							  
+							});
+						blink.start();
+					}
+				 if(b==sequence.get(sequenceIndex).getButton()) {
+					 sequenceIndex++;
+				 }
+				 else {
+					 p.gameOver();
+				 }
+				 if(sequenceIndex == sequence.size()){ 
+					    Thread nextRound = new Thread(SimonScreenDavid.this); 
+					    nextRound.start(); 
+					}
+
+					
+				}
+
+				});
 		}
 		
+	}
+
+	private ButtonInterfaceDavid getAButton() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
