@@ -120,8 +120,11 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 		}
 		return getMove(index);
 	}
-	private MoveInterfaceDavid getMove(int i) {
-	    return null;
+
+    
+	private MoveInterfaceDavid getMove(int index) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	private ProgressInterfaceDavid getProgress() {
@@ -137,8 +140,8 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 			final ButtonInterfaceDavid b = getAButton();
 			button[i] = b;
 			b.setColor(color[i]); 
-			b.setX(i*5);
-			b.setY(30);
+			b.setX(100);
+			b.setY((i+10)*3);
 			b.setAction(new Action(){
 
 				public void act(){

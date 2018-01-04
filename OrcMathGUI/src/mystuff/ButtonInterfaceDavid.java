@@ -10,4 +10,5 @@ public interface ButtonInterfaceDavid  extends Clickable {
 	void setAction(Action a);
 	void highlight();
 	void dim();
+	void getAButton();
 }
