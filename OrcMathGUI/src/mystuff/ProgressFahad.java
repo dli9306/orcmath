@@ -1,10 +1,16 @@
 package mystuff;
 
+
+
 import java.awt.Graphics2D;
 
 import guiTeacher.components.Component;
 
+
 public class ProgressFahad extends Component implements ProgressInterfaceDavid {
+	private int round;
+	private int sequenceSize;
+	private ProgressInterfaceDavid progress;
 
 	public ProgressFahad(int x, int y, int w, int h) {
 		super(x, y, w, h);
@@ -25,13 +31,13 @@ public class ProgressFahad extends Component implements ProgressInterfaceDavid {
 
 	@Override
 	public void setRound(int i) {
-		// TODO Auto-generated method stub
+		this.round = i;
 
 	}
 
 	@Override
 	public void setSequenceSize(int i) {
-		// TODO Auto-generated method stub
+		this.sequenceSize = i;
 
 	}
 
@@ -40,5 +46,7 @@ public class ProgressFahad extends Component implements ProgressInterfaceDavid {
 		// TODO Auto-generated method stub
 
 	}
+
+
 
 }
