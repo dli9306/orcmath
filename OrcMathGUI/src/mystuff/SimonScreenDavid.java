@@ -62,7 +62,7 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 
 	private void playSequence() {
 		 ButtonInterfaceDavid b=null;
-		 int sleepTime = 1000;
+		 int sleepTime = (int) (1000/(r*10));
 		 for(int i=0;i<sequence.size();i++){ 
 			     if(b!=null) {
 			    	 b.dim();

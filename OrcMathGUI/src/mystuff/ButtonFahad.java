@@ -13,6 +13,7 @@ public class ButtonFahad extends Button implements ButtonInterfaceDavid {
 	
 	private static boolean buttonOn;
 	private Color color;
+	private Color cColor;
 	
 	public static void main(String[] args) {
 		buttonOn = true;
@@ -20,7 +21,7 @@ public class ButtonFahad extends Button implements ButtonInterfaceDavid {
 
 	public ButtonFahad(int x, int y, int w, int h, String text,Action action) {
 		super(x, y, w, h, "", null);
-		// TODO Auto-generated constructor stub
+		
 	}
 	 
 	public void drawButton(Graphics2D g, boolean hover){
@@ -38,12 +39,12 @@ public class ButtonFahad extends Button implements ButtonInterfaceDavid {
 	}
 	@Override
 	public void highlight() {
-		setColor(this.color.brighter());
+		setColor(Color.cyan);
 		update();
 	}
 	@Override
 	public void dim() {
-		setColor(this.color.darker());
+		setColor(color);
 		update();
 	}
 	@Override
