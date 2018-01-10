@@ -130,7 +130,7 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 	}
 
 	private ProgressInterfaceDavid getProgress() {
-	   return new ProgressFahad(200, 200, 100, 100);
+	   return new ProgressFahad(150, 150, 100, 100);
 	}
 
 	private void addButtons() {
@@ -178,7 +178,7 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 				}
 
 				});
-			button[i] = b;
+
 		}
 	
 		
