@@ -9,6 +9,7 @@ import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 
+
 public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 	private TextLabel label;
 	private ProgressInterfaceDavid p;
@@ -38,15 +39,16 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 		r++;
 		MoveInterfaceDavid x = randomMove();
 		sequence.add(x);
-		setRound(r);
-		setSequenceSize(sequence.size());
+		p.setRound(r);
+		p.setSequenceSize(sequence.size());
 		changeText("Simon's turn");
 		playSequence();
 		changeText("Your turn");
 		acceptInput = true;
-		setSequenceSize(0);
+		sequenceIndex = 0;
 		
 	}
+	/*
 	private void setSequenceSize(int size) {
 		// TODO Auto-generated method stub
 		
@@ -56,15 +58,16 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 		// TODO Auto-generated method stub
 		
 	}
+	*/
 
 	private void playSequence() {
 		 ButtonInterfaceDavid b=null;
-		 int sleepTime = (int) (r*.5);
+		 int sleepTime = 1000;
 		 for(int i=0;i<sequence.size();i++){ 
 			     if(b!=null) {
 			    	 b.dim();
 			     }
-			    b = getButton();
+			    b = sequence.get(i).getButton();
 			    b.highlight();
 			    try {
 					Thread.sleep(sleepTime);
@@ -123,13 +126,11 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 
     
 	private MoveInterfaceDavid getMove(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		 return new MoveFahad(button[index]);
 	}
 
 	private ProgressInterfaceDavid getProgress() {
-		// TODO Auto-generated method stub
-		return null;
+	   return new ProgressFahad(200, 200, 100, 100);
 	}
 
 	private void addButtons() {
@@ -141,7 +142,7 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 			button[i] = b;
 			b.setColor(color[i]); 
 			b.setX(100);
-			b.setY((i+10)*3);
+			b.setY(30+(i*50));
 			b.setAction(new Action(){
 
 				public void act(){
@@ -177,13 +178,14 @@ public class SimonScreenDavid  extends ClickableScreen implements Runnable {
 				}
 
 				});
+			button[i] = b;
 		}
+	
 		
 	}
 
 	private ButtonInterfaceDavid getAButton() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ButtonFahad(0, 0, 40, 40, "", null);
 	}
 
 }

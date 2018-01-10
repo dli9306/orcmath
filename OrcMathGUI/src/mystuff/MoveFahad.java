@@ -1,15 +1,16 @@
 package mystuff;
 
 public class MoveFahad implements MoveInterfaceDavid {
+	
+	private ButtonInterfaceDavid b;
 
-	public MoveFahad() {
-		// TODO Auto-generated constructor stub
+	public MoveFahad(ButtonInterfaceDavid button) {
+		this.b = button;
 	}
 
 	@Override
 	public ButtonInterfaceDavid getButton() {
-		// TODO Auto-generated method stub
-		return null;
+		return b;
 	}
 
 	@Override
