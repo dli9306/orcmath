@@ -13,7 +13,6 @@ public class ButtonFahad extends Button implements ButtonInterfaceDavid {
 	
 	private static boolean buttonOn;
 	private Color color;
-	private Color cColor;
 	
 	public static void main(String[] args) {
 		buttonOn = true;
